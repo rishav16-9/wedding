@@ -5,13 +5,19 @@ import { motion } from "framer-motion";
 
 const BARS = [0.4, 0.85, 0.55, 1, 0.65];
 
-export function MusicToggle() {
-  const [playing, setPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement>(null);
+type MusicToggleProps = {
+  playing: boolean;
+  setPlaying: React.Dispatch<React.SetStateAction<boolean>>;
+  audioRef: React.RefObject<HTMLAudioElement | null>;
+};
+
+export function MusicToggle({playing, setPlaying, audioRef}: MusicToggleProps) {
+  // const [playing, setPlaying] = useState(false);
+  // const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     if (!audioRef.current) return;
-    audioRef.current.volume = 0.22;
+    audioRef.current.volume = 0.5;
     if (playing) {
       audioRef.current.play().catch(() => setPlaying(false));
     } else {
@@ -21,10 +27,9 @@ export function MusicToggle() {
 
   return (
     <>
-      {/* "A Man Approaches with Bowed Sitar, Rishikesh" by Samuel Corwin, CC BY 4.0 */}
       <audio ref={audioRef} loop preload="none">
-        <source src="/music/ambient.mp3" type="audio/mpeg" />
-        <source src="/music/ambient.ogg" type="audio/ogg" />
+        <source src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/may/Guarav%20%26%20MImi%20%7C%20Shreya/Ullam%20Paadum-%20Wedding%20Song%202%20States%20Lyrics%20Arjun%20Kapoor%2C%20Alia%20Bhatt%20-%20ker%20(mp3cut.net).mp3" type="audio/mpeg" />
+        {/* <source src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/may/Guarav%20%26%20MImi%20%7C%20Shreya/Ullam%20Paadum-%20Wedding%20Song%202%20States%20Lyrics%20Arjun%20Kapoor%2C%20Alia%20Bhatt%20-%20ker%20(mp3cut.net).mp3" type="audio/ogg" /> */}
       </audio>
       <motion.button
         onClick={() => setPlaying((p) => !p)}
