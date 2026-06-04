@@ -34,6 +34,13 @@ export const metadata: Metadata = {
   title: "Aditya & Rashmi — 06.07.2026 · Kathmandu",
   description:
     "With the blessings of the Almighty and our elders, we joyfully invite you to the wedding of Aditya Surana & Rashmi Barmecha. Kathmandu, 6th July 2026. #AdiKiRashmi",
+  icons: {
+    icon: [
+      {
+        url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💕%3C/text%3E%3C/svg%3E",
+      },
+    ],
+  },
   openGraph: {
     title: "Aditya & Rashmi — A Wedding Invitation",
     description:

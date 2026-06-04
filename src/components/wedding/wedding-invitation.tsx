@@ -18,6 +18,7 @@ import { EnvelopeIntro } from "./envelope-intro";
 import { MusicToggle } from "./music-toggle";
 import { MaskText, Reveal, Kicker, Magnetic } from "./primitives";
 import { CornerFlourish, FloralDivider, Bloom } from "./design-decor";
+import Image from "next/image";
 
 /* -------------------------------------------------------------------------- */
 /* Data                                                                        */
@@ -46,20 +47,19 @@ type WeddingEvent = {
 };
 
 const events: WeddingEvent[] = [
-  { no: "01", title: "Mehendi", subtitle: "Henna, green & laughter", date: "To be announced", time: "—", venue: "Kathmandu, Nepal", dress: "Green & floral", accent: "#9c6f2a" },
-  { no: "02", title: "Haldi", subtitle: "A golden glow & blessings", date: "To be announced", time: "—", venue: "Kathmandu, Nepal", dress: "As you wish, but in style", accent: "#c69749" },
-  { no: "03", title: "Mayara", subtitle: "Tradition, held with love", date: "To be announced", time: "—", venue: "Kathmandu, Nepal", dress: "Traditional & comfortable", accent: "#c23b5a" },
-  { no: "04", title: "Sangeet", subtitle: "Dance, glamour & blessings", date: "To be announced", time: "—", venue: "Kathmandu, Nepal", dress: "Glamorous & festive", accent: "#7d1f3d" },
-  { no: "05", title: "Reception & Wedding", subtitle: "The grand celebration", date: "6 July 2026", time: "Evening", venue: "Kathmandu, Nepal", dress: "Ethnic elegance / Formal/ Evening glam", accent: "#a8284b" },
+  { no: "01", title: "Mehendi", subtitle: "Henna, green & laughter", date: "5th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "Green & floral", accent: "#9c6f2a" },
+  { no: "02", title: "Haldi", subtitle: "A golden glow & blessings", date: "6th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "As you wish, but in style", accent: "#c69749" },
+  { no: "03", title: "Mayara", subtitle: "Tradition, held with love", date: "5th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "Traditional & comfortable", accent: "#c23b5a" },
+  { no: "04", title: "Sangeet", subtitle: "Dance, glamour & blessings", date: "5th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "Glamorous & festive", accent: "#7d1f3d" },
+  { no: "05", title: "Reception & Wedding", subtitle: "The grand celebration", date: "6th July 2026", time: "Evening", venue: "Kathmandu, Nepal", dress: "Ethnic elegance / Formal/ Evening glam", accent: "#a8284b" },
 ];
 
 const gallery: { src: string; caption: string; span: string }[] = [
-  { src: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1400&auto=format&fit=crop", caption: "The Invitation", span: "col-span-7 row-span-2" },
-  { src: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1200&auto=format&fit=crop", caption: "Henna", span: "col-span-5 row-span-1" },
-  { src: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?q=80&w=1200&auto=format&fit=crop", caption: "Marigold", span: "col-span-5 row-span-1" },
-  { src: "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=1400&auto=format&fit=crop", caption: "Two Souls", span: "col-span-6 row-span-2" },
-  { src: "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?q=80&w=1200&auto=format&fit=crop", caption: "The Vows", span: "col-span-6 row-span-1" },
-  { src: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=1200&auto=format&fit=crop", caption: "Celebration", span: "col-span-6 row-span-1" },
+  { src: "/images/Image1.png", caption: "Celebration", span: "col-span-6 row-span-4" },
+  { src: "/images/Image2.png", caption: "Henna", span: "col-span-6 row-span-5" },
+  { src: "/images/Image3.png", caption: "Marigold", span: "col-span-6 row-span-3" },
+  { src: "/images/Image4.png", caption: "The Vows", span: "col-span-6 row-span-4" },
+  { src: "/images/Image5.png", caption: "Celebration", span: "col-span-5 row-span-4" },
 ];
 
 /* -------------------------------------------------------------------------- */
