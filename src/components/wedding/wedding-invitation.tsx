@@ -30,7 +30,7 @@ const CALENDAR_URL =
   encodeURIComponent("Aditya & Rashmi — Wedding") +
   "&dates=20260706T131500Z/20260706T171500Z" +
   "&details=" +
-  encodeURIComponent("With love — #AdiRashKiShaadi") +
+  encodeURIComponent("With love — #AdiKiRashmi") +
   "&location=" +
   encodeURIComponent("Kathmandu, Nepal");
 
@@ -46,13 +46,11 @@ type WeddingEvent = {
 };
 
 const events: WeddingEvent[] = [
-  { no: "01", title: "Ganesh Puja", subtitle: "An auspicious beginning", date: "To be announced", time: "—", venue: "Kathmandu", dress: "Traditional & graceful", accent: "#a8284b" },
-  { no: "02", title: "Mehendi", subtitle: "Henna, green & laughter", date: "To be announced", time: "—", venue: "Kathmandu", dress: "Green & floral", accent: "#9c6f2a" },
-  { no: "03", title: "Geet", subtitle: "Songs, smiles & family", date: "To be announced", time: "—", venue: "Kathmandu", dress: "Comfortable festive wear", accent: "#b23a5b" },
-  { no: "04", title: "Haldi", subtitle: "A golden glow & blessings", date: "To be announced", time: "—", venue: "Kathmandu", dress: "As you wish — in style", accent: "#c69749" },
-  { no: "05", title: "Myara", subtitle: "Tradition, held with love", date: "To be announced", time: "—", venue: "Kathmandu", dress: "Traditional & comfortable", accent: "#c23b5a" },
-  { no: "06", title: "Sangeet & Tikal", subtitle: "Dance, glamour & blessings", date: "To be announced", time: "—", venue: "Kathmandu", dress: "Glamorous & festive", accent: "#7d1f3d" },
-  { no: "07", title: "Reception & Wedding", subtitle: "The grand celebration", date: "6 July 2026", time: "Evening", venue: "Kathmandu", dress: "Ethnic elegance / evening glam", accent: "#a8284b" },
+  { no: "01", title: "Mehendi", subtitle: "Henna, green & laughter", date: "To be announced", time: "—", venue: "Kathmandu, Nepal", dress: "Green & floral", accent: "#9c6f2a" },
+  { no: "02", title: "Haldi", subtitle: "A golden glow & blessings", date: "To be announced", time: "—", venue: "Kathmandu, Nepal", dress: "As you wish, but in style", accent: "#c69749" },
+  { no: "03", title: "Mayara", subtitle: "Tradition, held with love", date: "To be announced", time: "—", venue: "Kathmandu, Nepal", dress: "Traditional & comfortable", accent: "#c23b5a" },
+  { no: "04", title: "Sangeet", subtitle: "Dance, glamour & blessings", date: "To be announced", time: "—", venue: "Kathmandu, Nepal", dress: "Glamorous & festive", accent: "#7d1f3d" },
+  { no: "05", title: "Reception & Wedding", subtitle: "The grand celebration", date: "6 July 2026", time: "Evening", venue: "Kathmandu, Nepal", dress: "Ethnic elegance / Formal/ Evening glam", accent: "#a8284b" },
 ];
 
 const gallery: { src: string; caption: string; span: string }[] = [
@@ -142,14 +140,14 @@ function Hero() {
 
             <p className="font-deva text-base text-gold-deep">श्री गणेशाय नमः</p>
             <Kicker tone="dark" className="mt-5 justify-center">
-              Together with their families
+              Together with their families, request the pleasure of your company as they celebrate their marriage.
             </Kicker>
 
             <div className="mt-7">
               <MaskText as="h1" lines={["Aditya"]} className="font-display text-[clamp(2.7rem,10vw,5.2rem)] font-light leading-[0.9] text-ink" />
               <div className="my-1.5 flex items-center justify-center gap-4 sm:my-2.5">
                 <span className="h-px w-12 rule-gold opacity-60" />
-                <span className="font-display text-[clamp(1.7rem,5vw,2.6rem)] italic leading-none text-wine">&amp;</span>
+                <span className="font-display text-[clamp(1.7rem,5vw,2.6rem)] leading-none text-wine">&amp;</span>
                 <span className="h-px w-12 rule-gold opacity-60" />
               </div>
               <MaskText as="h1" lines={["Rashmi"]} className="font-display text-[clamp(2.7rem,10vw,5.2rem)] font-light italic leading-[0.9] text-ink" delay={0.12} />
@@ -164,7 +162,7 @@ function Hero() {
                 <MapPin className="h-3.5 w-3.5 text-wine" /> Kathmandu, Nepal
               </p>
               <div className="mt-7">
-                <span className="kicker rounded-full bg-wine/10 px-4 py-2 text-wine">#AdiRashKiShaadi</span>
+                <span className="kicker rounded-full bg-wine/10 px-4 py-2 text-wine">#AdiKiRashmi</span>
               </div>
             </Reveal>
           </div>
@@ -172,7 +170,7 @@ function Hero() {
       </motion.div>
 
       <a href="#blessing" data-cursor className="group absolute bottom-9 left-1/2 flex -translate-x-1/2 items-center gap-3 text-stone-warm">
-        <span className="kicker">Scroll to begin</span>
+        <span className="kicker">Begin the journey</span>
         <motion.span
           animate={reduce ? {} : { y: [0, 5, 0] }}
           transition={{ duration: 1.6, repeat: Infinity }}
@@ -203,11 +201,6 @@ function Invocation() {
             निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा
           </p>
         </Reveal>
-        <Reveal delay={0.35}>
-          <p className="mx-auto mt-8 max-w-md text-sm leading-relaxed text-stone-warm">
-            O Lord of the curved trunk, radiant as a million suns — remove all obstacles from our path, now and always.
-          </p>
-        </Reveal>
         <Reveal delay={0.5}>
           <FloralDivider className="mx-auto mt-12 h-5 w-48 text-gold" />
         </Reveal>
@@ -228,6 +221,13 @@ function Countdown() {
   }, []);
 
   const diff = now === null ? null : Math.max(0, weddingDate.getTime() - now);
+  if (diff === null) {
+    return null;
+  }
+
+  if (diff <= 0) {
+  return "Today is the day!"
+  }
   const units = [
     { label: "Days", value: diff === null ? null : Math.floor(diff / 864e5) },
     { label: "Hours", value: diff === null ? null : Math.floor((diff / 36e5) % 24) },
@@ -305,7 +305,7 @@ function Families() {
           <Family side="The Groom" name="Aditya" relation="Surana" parents="Son of Mrs. Madhu Mita Surana & Mr. Rajesh Surana" grandparents="Grandson of Mrs. Maina Devi Surana & Lt. Mr. Deep Chand Ji Surana" />
           <div className="flex shrink-0 flex-col items-center justify-center lg:py-8">
             <span className="hidden h-24 w-px rule-gold opacity-40 lg:block" />
-            <span className="font-display py-3 text-5xl italic text-wine">&amp;</span>
+            <span className="font-display py-3 text-5xl text-wine">&amp;</span>
             <span className="hidden h-24 w-px rule-gold opacity-40 lg:block" />
           </div>
           <Family side="The Bride" name="Rashmi" relation="Barmecha" parents="Daughter of Mrs. Lalita Barmecha & Mr. Deepak Barmecha" grandparents="Granddaughter of Mrs. Sundar Devi Barmecha & Lt. Mr. Sumermal Ji Barmecha" italic />
@@ -339,7 +339,7 @@ function CeremonyCard({ event, index }: { event: WeddingEvent; index: number }) 
             </div>
             <div>
               <p className="kicker text-stone-warm/50">Where</p>
-              <a href="https://maps.google.com/?q=Kathmandu" target="_blank" rel="noreferrer" data-cursor className="link-underline mt-1 inline-flex items-center gap-1.5 text-sm text-wine">
+              <a href="https://maps.app.goo.gl/KmnuVa1xZGqWRir16" target="_blank" rel="noreferrer" data-cursor className="link-underline mt-1 inline-flex items-center gap-1.5 text-sm text-wine">
                 <MapPin className="h-3.5 w-3.5" /> {event.venue}
               </a>
             </div>
@@ -366,10 +366,10 @@ function Ceremonies() {
       <div className="mx-auto max-w-4xl">
         <div className="mb-14 text-center">
           <Kicker index="II" tone="dark" className="mb-6 justify-center">The Itinerary</Kicker>
-          <MaskText as="h2" lines={["Seven celebrations"]} className="font-display text-[clamp(2.3rem,7vw,4.5rem)] font-light leading-[0.98] text-ink" />
+          <MaskText as="h2" lines={["Five celebrations"]} className="font-display text-[clamp(2.3rem,7vw,4.5rem)] font-light leading-[0.98] text-ink" />
           <FloralDivider className="mx-auto mt-7 h-5 w-56 text-gold" />
           <p className="mx-auto mt-6 max-w-md text-stone-warm">
-            Seven days, seven invitations. Each ceremony carries its own colour, its own dress code, its own kind of joy.
+            Two days, Five invitations. Each ceremony carries its own color, its own dress code, its own kind of joy.
           </p>
         </div>
         <div className="space-y-5 sm:space-y-6">
@@ -393,9 +393,6 @@ function Gallery() {
           <Kicker index="III" tone="dark" className="mb-6 justify-center">Moments</Kicker>
           <MaskText as="h2" lines={["A glimpse, in advance"]} className="font-display text-[clamp(2.3rem,7vw,4.5rem)] font-light leading-[0.98] text-ink" />
           <FloralDivider className="mx-auto mt-7 h-5 w-56 text-gold" />
-          <p className="mx-auto mt-6 max-w-md text-stone-warm">
-            Placeholder frames for now — soon to be filled with our own. The best ones are still to be made, with you in them.
-          </p>
         </div>
 
         <div className="grid auto-rows-[150px] grid-cols-12 gap-3 sm:auto-rows-[180px] sm:gap-4">
@@ -522,13 +519,6 @@ function Footer() {
 
       <div className="relative z-10 mt-20 border-t border-ink/10 pt-8">
         <Marquee text="ADITYA & RASHMI" className="kicker text-ink/30" duration={30} />
-        <p className="mt-6 text-center text-[0.625rem] tracking-wide text-stone-warm/55">
-          Music:{" "}
-          <a href="https://commons.wikimedia.org/wiki/File:Samuel_Corwin_-_A_Man_Approaches_with_Bowed_Sitar,_Rishikesh.ogg" target="_blank" rel="noreferrer" className="link-underline">
-            “Bowed Sitar, Rishikesh” by Samuel Corwin
-          </a>{" "}
-          (CC BY 4.0)
-        </p>
       </div>
     </footer>
   );
@@ -564,6 +554,8 @@ function FloatingHeader() {
 export default function WeddingInvitation() {
   const [introOpen, setIntroOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [playing, setPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
   const { scrollYProgress } = useScroll();
   const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
@@ -593,10 +585,10 @@ export default function WeddingInvitation() {
       {introOpen && <SmoothScroll />}
       <Cursor />
       <Grain />
-      <MusicToggle />
+      <MusicToggle playing={playing} setPlaying={setPlaying} audioRef={audioRef}/>
 
       <AnimatePresence>
-        {!introOpen && <EnvelopeIntro onOpen={() => setIntroOpen(true)} />}
+        {!introOpen && <EnvelopeIntro onOpen={() => setIntroOpen(true)} setPlaying={setPlaying} audioRef={audioRef} />}
       </AnimatePresence>
 
       <motion.div className="fixed inset-x-0 top-0 z-[130] h-[2px] origin-left bg-gold" style={{ scaleX }} />
@@ -605,7 +597,7 @@ export default function WeddingInvitation() {
 
       <main className="relative">
         <Hero />
-        <Marquee text="ADITYA & RASHMI · 06.07.2026 · KATHMANDU · #ADIRASHKISHAADI" className="border-y border-gold/25 bg-cream py-4 text-sm tracking-[0.2em] text-ink/70" duration={40} />
+        <Marquee text="ADITYA & RASHMI · 06.07.2026 · KATHMANDU · #AdiKiRashmi" className="border-y border-gold/25 bg-cream py-4 text-sm tracking-[0.2em] text-ink/70" duration={40} />
         <Invocation />
         <SaveTheDate />
         <Families />

@@ -45,14 +45,32 @@ function Petals() {
   );
 }
 
-export function EnvelopeIntro({ onOpen }: { onOpen: () => void }) {
+export function EnvelopeIntro({ onOpen, setPlaying, audioRef }: {
+  onOpen: () => void;
+  setPlaying: React.Dispatch<React.SetStateAction<boolean>>;
+  audioRef: React.RefObject<HTMLAudioElement | null>;
+ }) {
   const [opening, setOpening] = useState(false);
   const startY = useRef<number | null>(null);
   const reduce = useReducedMotion();
 
-  const open = () => {
+  const open = (shouldPlayMusic = true) => {
     if (opening) return;
     setOpening(true);
+    if (shouldPlayMusic) {
+      const audio = audioRef.current;
+      if (audio) {
+      audio.volume = 0.22;
+
+      try {
+        audio.play();
+        setPlaying(true);
+      } catch (error) {
+        console.log("Audio blocked:", error);
+      }
+    }
+
+    }
     window.setTimeout(onOpen, reduce ? 200 : 1250);
   };
 
@@ -62,18 +80,18 @@ export function EnvelopeIntro({ onOpen }: { onOpen: () => void }) {
   const onTouchEnd = (e: React.TouchEvent) => {
     if (startY.current === null) return;
     const endY = e.changedTouches?.[0]?.clientY ?? startY.current;
-    if (startY.current - endY > 45) open();
+    if (startY.current - endY > 45) open(true);
     startY.current = null;
   };
   // Desktop: a mouse-wheel / trackpad scroll opens the invitation too.
   const onWheel = (e: React.WheelEvent) => {
-    if (Math.abs(e.deltaY) > 10) open();
+    if (Math.abs(e.deltaY) > 10) open(false);
   };
   // Keyboard: Enter / Space / arrows / page-down also open.
   const onKeyDown = (e: React.KeyboardEvent) => {
     if (["Enter", " ", "ArrowDown", "ArrowUp", "PageDown"].includes(e.key)) {
       e.preventDefault();
-      open();
+      open(true);
     }
   };
 
@@ -119,7 +137,7 @@ export function EnvelopeIntro({ onOpen }: { onOpen: () => void }) {
 
           {/* open trigger */}
           <button
-            onClick={open}
+            onClick={() => open(true)}
             aria-label="Open the invitation"
             data-cursor
             className="group mt-9 inline-flex items-center gap-3 rounded-full bg-wine px-7 py-4 text-cream shadow-[0_14px_30px_-12px_rgba(168,40,75,0.6)] outline-none transition-colors hover:bg-wine-bright"
@@ -139,7 +157,7 @@ export function EnvelopeIntro({ onOpen }: { onOpen: () => void }) {
             animate={opening ? { opacity: 0 } : { opacity: [0.4, 0.85, 0.4] }}
             transition={{ duration: 2.4, repeat: opening ? 0 : Infinity }}
           >
-            Tap, scroll, or swipe to open
+            Open your invitation
           </motion.p>
         </div>
       </motion.div>

@@ -33,11 +33,11 @@ const notoDevanagari = Noto_Serif_Devanagari({
 export const metadata: Metadata = {
   title: "Aditya & Rashmi — 06.07.2026 · Kathmandu",
   description:
-    "With the blessings of the Almighty and our elders, we joyfully invite you to the wedding of Aditya Surana & Rashmi Barmecha. Kathmandu, 6th July 2026. #AdiRashKiShaadi",
+    "With the blessings of the Almighty and our elders, we joyfully invite you to the wedding of Aditya Surana & Rashmi Barmecha. Kathmandu, 6th July 2026. #AdiKiRashmi",
   openGraph: {
     title: "Aditya & Rashmi — A Wedding Invitation",
     description:
-      "Kathmandu · 6th July 2026 · #AdiRashKiShaadi — you are warmly invited.",
+      "Kathmandu · 6th July 2026 · #AdiKiRashmi — you are warmly invited.",
     type: "website",
   },
 };
