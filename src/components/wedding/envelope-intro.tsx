@@ -129,7 +129,7 @@ export function EnvelopeIntro({ onOpen, setPlaying, audioRef }: {
           <p className="font-deva mt-5 text-lg text-gold-deep">श्री गणेशाय नमः</p>
 
           <h1 className="font-display mt-3 text-[clamp(2.4rem,11vw,3.6rem)] font-light italic leading-[1.05] text-ink">
-            Aditya <span className="text-wine">&amp;</span> Rashmi
+            Aditya <span className="text-wine not-italic">&amp;</span> Rashmi
           </h1>
 
           <FloralDivider className="mx-auto mt-6 h-5 w-44 text-gold" />
