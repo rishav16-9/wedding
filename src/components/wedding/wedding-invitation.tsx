@@ -44,13 +44,14 @@ type WeddingEvent = {
   venue: string;
   dress: string;
   accent: string;
+  map: string;
 };
 
 const events: WeddingEvent[] = [
-  { no: "01", title: "Mayara", subtitle: "Threads of timeless traditional", date: "5th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "Traditional & comfortable", accent: "#c23b5a" },
-  { no: "02", title: "Sangeet", subtitle: "The Musical Soiree", date: "5th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "Glamorous & festive", accent: "#7d1f3d" },
-  { no: "03", title: "Haldi", subtitle: "A golden glow of blessings", date: "6th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "As you wish, but in style", accent: "#c69749" },
-  { no: "04", title: "Reception & Wedding", subtitle: "The grand celebration", date: "6th July 2026", time: "Evening", venue: "Kathmandu, Nepal", dress: "Ethnic elegance / Formal/ Evening glam", accent: "#a8284b" },
+  { no: "01", title: "Mayara", subtitle: "Threads of timeless traditional", date: "5th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "Traditional & comfortable", accent: "#c23b5a", map: "https://maps.app.goo.gl/KmnuVa1xZGqWRir16"},
+  { no: "02", title: "Sangeet", subtitle: "The Musical Soiree", date: "5th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "Glam & celebration ready", accent: "#7d1f3d", map: "https://maps.app.goo.gl/xRgHbTawSvKp1ZJB7"},
+  { no: "03", title: "Haldi", subtitle: "A golden glow of blessings", date: "6th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "As you wish, but in style", accent: "#c69749", map: "https://maps.app.goo.gl/KmnuVa1xZGqWRir16"},
+  { no: "04", title: "Reception & Wedding", subtitle: "The grand celebration", date: "6th July 2026", time: "Evening", venue: "Kathmandu, Nepal", dress: "Ethnic elegance / Formal/ Evening glam", accent: "#a8284b", map: "https://maps.app.goo.gl/xRgHbTawSvKp1ZJB7"},
 ];
 
 const gallery: { src: string; caption: string; span: string }[] = [
@@ -338,7 +339,7 @@ function CeremonyCard({ event, index }: { event: WeddingEvent; index: number }) 
             </div>
             <div>
               <p className="kicker text-stone-warm/50">Where</p>
-              <a href="https://maps.app.goo.gl/KmnuVa1xZGqWRir16" target="_blank" rel="noreferrer" data-cursor className="link-underline mt-1 inline-flex items-center gap-1.5 text-sm text-wine">
+              <a href={event.map} target="_blank" rel="noreferrer" data-cursor className="link-underline mt-1 inline-flex items-center gap-1.5 text-sm text-wine">
                 <MapPin className="h-3.5 w-3.5" /> {event.venue}
               </a>
             </div>
@@ -365,7 +366,10 @@ function Ceremonies() {
       <div className="mx-auto max-w-4xl">
         <div className="mb-14 text-center">
           <Kicker index="II" tone="dark" className="mb-6 justify-center">The Itinerary</Kicker>
-          <MaskText as="h2" lines={["Five celebrations"]} className="font-display text-[clamp(2.3rem,7vw,4.5rem)] font-light leading-[0.98] text-ink" />
+          <MaskText as="h2" lines={["Join the celebration"]} className="font-display text-[clamp(2.3rem,7vw,4.5rem)] font-light leading-[0.98] text-ink" />
+          <p className="mx-auto mt-6 max-w-md text-stone-warm">
+            Here’s a glimpse of our wedding day celebrations. Dress up and be part of our forever
+          </p>
           <FloralDivider className="mx-auto mt-7 h-5 w-56 text-gold" />
           <p className="mx-auto mt-6 max-w-md text-stone-warm">
             Two days, Four invitations. Each ceremony carries its own color, its own dress code, its own kind of joy.
