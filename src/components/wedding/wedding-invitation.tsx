@@ -47,9 +47,9 @@ type WeddingEvent = {
 };
 
 const events: WeddingEvent[] = [
-  { no: "01", title: "Mayara", subtitle: "Tradition, held with love", date: "5th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "Traditional & comfortable", accent: "#c23b5a" },
-  { no: "02", title: "Sangeet", subtitle: "Dance, glamour & blessings", date: "5th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "Glamorous & festive", accent: "#7d1f3d" },
-  { no: "03", title: "Haldi", subtitle: "A golden glow & blessings", date: "6th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "As you wish, but in style", accent: "#c69749" },
+  { no: "01", title: "Mayara", subtitle: "Threads of timeless traditional", date: "5th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "Traditional & comfortable", accent: "#c23b5a" },
+  { no: "02", title: "Sangeet", subtitle: "The Musical Soiree", date: "5th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "Glamorous & festive", accent: "#7d1f3d" },
+  { no: "03", title: "Haldi", subtitle: "A golden glow of blessings", date: "6th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "As you wish, but in style", accent: "#c69749" },
   { no: "04", title: "Reception & Wedding", subtitle: "The grand celebration", date: "6th July 2026", time: "Evening", venue: "Kathmandu, Nepal", dress: "Ethnic elegance / Formal/ Evening glam", accent: "#a8284b" },
 ];
 
