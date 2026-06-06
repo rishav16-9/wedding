@@ -47,19 +47,18 @@ type WeddingEvent = {
 };
 
 const events: WeddingEvent[] = [
-  { no: "01", title: "Mehendi", subtitle: "Henna, green & laughter", date: "5th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "Green & floral", accent: "#9c6f2a" },
-  { no: "02", title: "Haldi", subtitle: "A golden glow & blessings", date: "6th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "As you wish, but in style", accent: "#c69749" },
-  { no: "03", title: "Mayara", subtitle: "Tradition, held with love", date: "5th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "Traditional & comfortable", accent: "#c23b5a" },
-  { no: "04", title: "Sangeet", subtitle: "Dance, glamour & blessings", date: "5th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "Glamorous & festive", accent: "#7d1f3d" },
-  { no: "05", title: "Reception & Wedding", subtitle: "The grand celebration", date: "6th July 2026", time: "Evening", venue: "Kathmandu, Nepal", dress: "Ethnic elegance / Formal/ Evening glam", accent: "#a8284b" },
+  { no: "01", title: "Mayara", subtitle: "Tradition, held with love", date: "5th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "Traditional & comfortable", accent: "#c23b5a" },
+  { no: "02", title: "Sangeet", subtitle: "Dance, glamour & blessings", date: "5th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "Glamorous & festive", accent: "#7d1f3d" },
+  { no: "03", title: "Haldi", subtitle: "A golden glow & blessings", date: "6th July 2026", time: "—", venue: "Kathmandu, Nepal", dress: "As you wish, but in style", accent: "#c69749" },
+  { no: "04", title: "Reception & Wedding", subtitle: "The grand celebration", date: "6th July 2026", time: "Evening", venue: "Kathmandu, Nepal", dress: "Ethnic elegance / Formal/ Evening glam", accent: "#a8284b" },
 ];
 
 const gallery: { src: string; caption: string; span: string }[] = [
-  { src: "/images/Image1.png", caption: "Celebration", span: "col-span-6 row-span-4" },
-  { src: "/images/Image2.png", caption: "Henna", span: "col-span-6 row-span-5" },
-  { src: "/images/Image3.png", caption: "Marigold", span: "col-span-6 row-span-3" },
-  { src: "/images/Image4.png", caption: "The Vows", span: "col-span-6 row-span-4" },
-  { src: "/images/Image5.png", caption: "Celebration", span: "col-span-5 row-span-4" },
+  { src: "/images/Image1.jpg", caption: "Celebration", span: "col-span-6 row-span-2" },
+  { src: "/images/Image2.jpg", caption: "Henna", span: "col-span-6 row-span-2" },
+  { src: "/images/Image3.jpg", caption: "Marigold", span: "col-span-12 row-span-2" },
+  { src: "/images/Image4.jpg", caption: "The Vows", span: "col-span-6 row-span-2" },
+  { src: "/images/Image5.jpg", caption: "Celebration", span: "col-span-6 row-span-2" },
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -262,7 +261,7 @@ function SaveTheDate() {
           </div>
           <Reveal delay={0.2}>
             <p className="mt-8 max-w-sm text-stone-warm">
-              A Monday evening in Kathmandu. Dress up, show up, and help us turn every moment into a memory worth keeping.
+              A new chapter begins, and we're excited to share this special moment with you. Join us as we celebrate love, laughter, and a lifetime of happiness together. Mark your calendar. The countdown to our big day is on.
             </p>
             <Magnetic className="mt-8">
               <a href={CALENDAR_URL} target="_blank" rel="noreferrer" data-cursor className="group inline-flex items-center gap-3 rounded-full bg-wine px-6 py-4 text-cream transition-colors hover:bg-wine-bright">
@@ -369,7 +368,7 @@ function Ceremonies() {
           <MaskText as="h2" lines={["Five celebrations"]} className="font-display text-[clamp(2.3rem,7vw,4.5rem)] font-light leading-[0.98] text-ink" />
           <FloralDivider className="mx-auto mt-7 h-5 w-56 text-gold" />
           <p className="mx-auto mt-6 max-w-md text-stone-warm">
-            Two days, Five invitations. Each ceremony carries its own color, its own dress code, its own kind of joy.
+            Two days, Four invitations. Each ceremony carries its own color, its own dress code, its own kind of joy.
           </p>
         </div>
         <div className="space-y-5 sm:space-y-6">
